@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="实时天气预报仪表板 - 全球天气查询">
+    <title>天气仪表板 | Weather Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🌤️ Weather Dashboard</h1>
+            </div>
+            <div class="navbar-menu">
+                <button id="themeToggle" class="btn-icon" title="切换主题">
+                    <span>🌙</span>
+                </button>
+                <button id="unitToggle" class="btn-icon" title="切换温度单位">
+                    <span>°C</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="search-section">
+                <h2>搜索城市</h2>
+                <div class="search-group">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="输入城市名称..."
+                        autocomplete="off"
+                    >
+                    <button id="searchBtn" class="btn btn-primary">搜索</button>
+                </div>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+
+            <div class="favorites-section">
+                <h2>收藏城市</h2>
+                <div id="favoritesList" class="favorites-list"></div>
+            </div>
+
+            <div class="recent-section">
+                <h2>最近搜索</h2>
+                <div id="recentList" class="recent-list"></div>
+            </div>
+        </aside>
+
+        <!-- 主要内容 -->
+        <section class="content">
+            <!-- 当前天气 -->
+            <div id="currentWeather" class="weather-card current-weather">
+                <div class="weather-loading">
+                    <div class="spinner"></div>
+                    <p>加载中...</p>
+                </div>
+            </div>
+
+            <!-- 天气详情网格 -->
+            <div class="weather-details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">💧</div>
+                    <div class="detail-content">
+                        <p class="detail-label">湿度</p>
+                        <p class="detail-value" id="humidityValue">--</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">💨</div>
+                    <div class="detail-content">
+                        <p class="detail-label">风速</p>
+                        <p class="detail-value" id="windValue">--</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">🔍</div>
+                    <div class="detail-content">
+                        <p class="detail-label">能见度</p>
+                        <p class="detail-value" id="visibilityValue">--</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">🌡️</div>
+                    <div class="detail-content">
+                        <p class="detail-label">体感温度</p>
+                        <p class="detail-value" id="feelsLikeValue">--</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 日出日落 -->
+            <div class="sunrise-sunset-card">
+                <div class="sun-info">
+                    <div class="sun-item">
+                        <span class="sun-icon">🌅</span>
+                        <div>
+                            <p class="sun-label">日出</p>
+                            <p class="sun-time" id="sunriseTime">--:--</p>
+                        </div>
+                    </div>
+                    <div class="sun-divider"></div>
+                    <div class="sun-item">
+                        <span class="sun-icon">🌇</span>
+                        <div>
+                            <p class="sun-label">日落</p>
+                            <p class="sun-time" id="sunsetTime">--:--</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5天预报 -->
+            <div class="forecast-section">
+                <h2>5天预报</h2>
+                <div id="forecastContainer" class="forecast-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 错误提示 -->
+    <div id="errorToast" class="toast toast-error"></div>
+    <!-- 成功提示 -->
+    <div id="successToast" class="toast toast-success"></div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+/* ============================================
+   响应式设计
+   ============================================ */
+
+/* 平板设备 (768px 以下) */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+        order: 2;
+    }
+
+    .content {
+        order: 1;
+    }
+
+    .weather-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .weather-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .temperature {
+        font-size: 3rem;
+    }
+
+    .weather-icon {
+        font-size: 3rem;
+    }
+
+    .weather-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sun-info {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .sun-divider {
+        width: 60px;
+        height: 2px;
+    }
+
+    .forecast-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .navbar .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .navbar-brand h1 {
+        font-size: 1.2rem;
+    }
+}
+
+/* 小型手机 (480px 以下) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
+    .navbar-brand h1 {
+        font-size: 1rem;
+    }
+
+    .main-container {
+        gap: 1rem;
+        padding: 0.75rem;
+        min-height: auto;
+    }
+
+    .sidebar {
+        padding: 1rem;
+    }
+
+    .weather-card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .temperature {
+        font-size: 2.5rem;
+    }
+
+    .weather-description {
+        font-size: 1.1rem;
+    }
+
+    .weather-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-card {
+        padding: 1rem;
+    }
+
+    .forecast-container {
+        grid-template-columns: 1fr;
+    }
+
+    .forecast-card {
+        padding: 1rem;
+    }
+
+    .toast {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+        padding: 1rem;
+    }
+
+    .search-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* 大屏幕 (1200px 以上) */
+@media (min-width: 1200px) {
+    .sidebar {
+        width: 350px;
+    }
+
+    .forecast-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* 超大屏幕 (1600px 以上) */
+@media (min-width: 1600px) {
+    .main-container {
+        max-width: 1600px;
+    }
+
+    .sidebar {
+        width: 400px;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .navbar,
+    .sidebar,
+    .btn-icon {
+        display: none;
+    }
+
+    .main-container {
+        flex-direction: column;
+    }
+
+    .content {
+        width: 100%;
+    }
+}
